@@ -86,6 +86,7 @@ class ReportHandler(webapp2.RequestHandler):
         try:
             if len(self.request.body) > 0:
                 rst = json.loads(self.request.body)
+                logging.info(self.request.body)
                 if rst['items'] != None and type(rst['items']) == type([]) and len(rst['items']) > 0:
                     addPostInTx(rst)
         except:
